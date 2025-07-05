@@ -201,6 +201,17 @@
   ],
   "rules": [
     {
+      "id": "SHARE-rule-cdf0dff9-d152-4cbb-8e50-9461c24831e0",
+      "fileUrl": "ShortX-微信通知朗读.txt",
+      "title": "微信通知朗读",
+      "description": "有微信通知时，弹幕提示并且朗读",
+      "versionCode": 1,
+      "updateTimeMillis": 1751415329603,
+      "author": "namexiaolu",
+      "tags": [],
+      "requireMinShortXProtoVersion": 0
+    },
+    {
       "id": "rule-80b31faa-77d2-4d40-b6f8-a1e40fe6193a",
       "fileUrl": "ShortX-自动旋转.txt",
       "title": "自动旋转-Ksu看简介",

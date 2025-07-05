@@ -1,0 +1,110 @@
+{
+  "facts": [{
+    "@type": "type.googleapis.com/NotificationPosted",
+    "record": {
+      "apps": [{
+        "pkgName": "com.tencent.mm"
+      }]
+    },
+    "customContextDataKey": {
+    },
+    "id": "F-11e60fd5-7159-444c-af8e-4957846f899b"
+  }, {
+    "@type": "type.googleapis.com/NotificationUpdated",
+    "new": {
+      "apps": [{
+        "pkgName": "com.tencent.mm"
+      }]
+    },
+    "customContextDataKey": {
+    },
+    "id": "F-a2dd712f-8e25-47b3-a656-12aa57a6ccb4"
+  }],
+  "conditions": [{
+    "@type": "type.googleapis.com/RequireBTConnected",
+    "device": "OPPO Enco X2",
+    "customContextDataKey": {
+    },
+    "id": "C-1df77106-2b53-4040-be05-a8a355d6505a"
+  }, {
+    "@type": "type.googleapis.com/RequireBTConnected",
+    "device": "CHANGAN",
+    "customContextDataKey": {
+    },
+    "id": "C-024cc422-b7db-44cf-adec-a1ecdcb1963e"
+  }],
+  "actions": [{
+    "@type": "type.googleapis.com/ReplaceRegex",
+    "string": "{contentText}",
+    "regex": "\\[\\d条]",
+    "replacement": "    ",
+    "customContextDataKey": {
+    },
+    "id": "A-8be692a9-1031-4cfe-95b9-2a02e337c4f9"
+  }, {
+    "@type": "type.googleapis.com/ShowDanmu",
+    "text": "\n{replaceResult}",
+    "icon": "app://{pkgName}",
+    "customContextDataKey": {
+    }
+  }, {
+    "@type": "type.googleapis.com/IfThenElse",
+    "If": [{
+      "@type": "type.googleapis.com/AppHasAudioFocus",
+      "pkgs": [{
+        "pkgName": "com.netease.cloudmusic"
+      }, {
+        "pkgName": "app.podcast.cosmos"
+      }],
+      "op": "ANY",
+      "customContextDataKey": {
+      },
+      "id": "C-4ab2a538-c85d-418e-9073-89a0c6397d9d"
+    }],
+    "IfActions": [{
+      "@type": "type.googleapis.com/MediaPlayback",
+      "action": "MediaPlaybackAction_Pause",
+      "customContextDataKey": {
+      },
+      "id": "A-3d8e701d-f0d6-4f8c-8fd5-5aa01ebd94c1"
+    }, {
+      "@type": "type.googleapis.com/TTS",
+      "text": "{replaceResult}",
+      "customContextDataKey": {
+      },
+      "id": "A-6e80a5f4-a4fc-42e7-97ca-857213cc9a68"
+    }, {
+      "@type": "type.googleapis.com/MediaPlayback",
+      "customContextDataKey": {
+      },
+      "id": "A-6af1ca0b-f4a7-4f4b-a6f2-87b8ac8b5d18"
+    }],
+    "ElseActions": [{
+      "@type": "type.googleapis.com/TTS",
+      "text": "{replaceResult}",
+      "customContextDataKey": {
+      },
+      "id": "A-f4f5ec5b-904b-4dc0-ba45-e5c269fcaaf7"
+    }],
+    "customContextDataKey": {
+    },
+    "id": "A-fae7e444-7327-4ef8-b2c3-2b39239ec8d5"
+  }],
+  "id": "SHARE-rule-cdf0dff9-d152-4cbb-8e50-9461c24831e0",
+  "lastUpdateTime": "1751415329603",
+  "createTime": "1685154474232",
+  "author": {
+    "name": "ShortX"
+  },
+  "title": "微信通知朗读",
+  "description": "有微信通知时，如果链接到指定的蓝牙，弹幕提示并且朗读（如果在播放网易云或者小宇宙，先暂停再朗读）",
+  "isEnabled": true,
+  "condOp": "ANY",
+  "hook": {
+  },
+  "quit": {
+  },
+  "asyncMode": "AsyncMode_Sync"
+}
+###------###
+{"type":"rule"} 
